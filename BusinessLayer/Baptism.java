@@ -1,5 +1,7 @@
 package BusinessLayer;
 
+import BusinessLayer.Event;
+
 public class Baptism extends Event{
 
     @Override
