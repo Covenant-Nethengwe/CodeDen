@@ -7,6 +7,7 @@ public class Party extends Event {
     @Override
     public int registerEvent() {
         // TODO Auto-generated method stub
+        //hjhjhjhj
         return 0;
     }
 
