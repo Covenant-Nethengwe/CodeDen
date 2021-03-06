@@ -1,4 +1,7 @@
 import java.util.*;
+
+import DataAccessLayer.DataHandler;
+
 import java.text.SimpleDateFormat;
 
 
@@ -26,24 +29,37 @@ public class View {
 
     public int UserLogin()
     {
-        // Returns the Email(user name) and Email(password) of the customer if customer exists
-        // Retutns -1 should the customer not exist
+        // Returns the CustomerID
+        // Returns -1 should the customer not exist
+        DataHandler handler = new DataHandler();
         Scanner sc = new Scanner(System.in);
         System.out.println("-------------------------WELCOME BACK TO DELICIOUS CATERING-------------------------");
         System.out.println("------------------------THANK YOU FOR YOUR CONTINUED SUPPORT------------------------");
         System.out.println("Please Enter your USERNAME number (note:cellphone number is your username):");
         String uName = sc.nextLine();
-        if (uName) {
-            
+        String uNameCheck = handler.isExistingUser(uName);
+        if (uNameCheck != "") 
+        {
+            System.out.println("Please enter PASSWORD (note: email is your password):");
+            String pass = sc.nextLine();
+            String[] userDetails = uNameCheck.split(",");
+            if (pass == userDetails[1]) {
+                sc.close();
+                return handler.getCustomerID(userDetails[0]);    
+            } else {
+                sc.close();
+                return -1;
+            }
         }
-        System.out.println("Please enter PASSWORD (note: email is your password):");
-        String pass = sc.nextLine();
-        sc.close();
-
-
+        else
+        {
+            System.out.println("Cell-Phone number does not exist please try again or register if you haven't done so yet.");
+            sc.close();
+            return -1;
+        }
     }
 
-    public List <String> registerEventData()
+    public List<String> registerEventData()
     {
         List<String> lst = new LinkedList<>();
         Scanner sc = new Scanner(System.in);

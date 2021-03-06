@@ -1,4 +1,4 @@
-import DataAccessLayer.DataHandler;
+import DataAccessLayer.*;
 
 ;public class UserAuthentication {
     public void RegisterUser()
@@ -10,13 +10,12 @@ import DataAccessLayer.DataHandler;
         handler.addCustomer(userData[0], userData[1], userData[2], userData[3]);
     }
 
-    public void UserLogin()
+    public int UserLogin()
     {
         // Logs User in
         // returns CustomerID if validation goes well
         // returms -1 otherwise
         View view = new View();
-        DataHandler handler =  new DataHandler();
-        String[] userDetails = handler.isExistingUser(CustomerID)
+        return view.UserLogin();
     }   
 }

@@ -216,6 +216,9 @@ public class DataHandler {
             Statement st = con.createStatement();
             String sql = "SELECT CellNo, Email FROM Customer WHERE CellNo ='" + userName + "'";
             rs = st.executeQuery(sql);
+            if (rs.getString(0) == null) {
+                return "";
+            }
             result += rs.getString(0) + "," + rs.getString(1);
         } catch (Exception e) {
             System.out.println(e.toString());
@@ -223,4 +226,20 @@ public class DataHandler {
         con.close();
         return result;
     }
+
+    public Integer getCustomerID(String cell)
+    {
+        ResultSet rs;
+        con = new DatabaseConnection().con();
+        try {
+            Statement st = con.createStatement();
+            String sql = "SELECT CustomerId FROM Customer WHERE ='" + cell + "'";
+            rs = st.executeQuery(sql);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        con.close();
+        return rs.getInt("CustomerID");
+    }
+
 }
