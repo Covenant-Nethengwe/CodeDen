@@ -1,3 +1,4 @@
+package BusinessLayer;
 public class Graduation extends Event{
 
     @Override
