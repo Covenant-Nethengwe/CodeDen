@@ -1,6 +1,14 @@
 package BusinessLayer;
+
+
+
+import java.util.Date;
+
+import DataAccesLayer.DataHandler;
 public class Graduation extends Event{
 
+    DataHandler datahandler =  new Datahandler();
+    
     @Override
     public int registerEvent() {
         // TODO Auto-generated method stub
@@ -15,14 +23,43 @@ public class Graduation extends Event{
 
     @Override
     public Event confirmedBooking(Boolean booking) {
-        // TODO Auto-generated method stub
-        return null;
+        if(booking == false){
+
+            int dateDiff = handler.date - Date.UTC(date);
+
+            if (datDiff<= 15) {
+
+                System.out.println("UNCOMFIRMED Event ID :"handler.eventId +"has been cancelled...");
+                
+            }
+            else{
+
+                int bookingId;
+                Baptism.booking(Integer bookingId);
+
+            }
+        }
+        else{
+            return event;
+        }
+
     }
+
+    
 
     @Override
     public double calculateTotal(Event typeOfEvent) {
-        // TODO Auto-generated method stub
-        return 0;
+        if(theme==true)
+        {
+            Price = Price + BThemePrice;
+        }else{BThemePrice=0.0;}
+
+        if(handler.noOfAdults>40){
+            Price = Price - (0.15*Price);
+        }
+
+        return Price;
+        
     }
 
     

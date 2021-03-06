@@ -107,5 +107,4 @@ public abstract class Event {
     public abstract int registerEvent();
     public abstract Boolean booking(int bookingId);
     public abstract Event confirmedBooking(Boolean booking);
-    public abstract double calculateTotal(Event typeOfEvent);
 }
