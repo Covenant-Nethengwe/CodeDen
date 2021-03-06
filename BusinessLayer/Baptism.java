@@ -19,7 +19,9 @@ public class Baptism extends Event{
 
     @Override
     public Boolean booking(int bookingId) {
+
         int statusInt = getBookingStatus(bookingId);
+        
         if (statusInt == 1) {
             return true;
         } else {

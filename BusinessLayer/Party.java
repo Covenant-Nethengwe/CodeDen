@@ -22,6 +22,7 @@ public class Party extends Event {
         int dateDiff = handler.date - Date.UTC(date);
 
         if (datDiff<= 15) {
+            
 
             System.out.println("UNCOMFIRMED Event ID :"handler.eventId +"has been cancelled...");
             
