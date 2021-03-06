@@ -13,12 +13,17 @@ public class YearEndFunc extends Event
 
     @Override
     public Boolean booking(int bookingId) {
-        // TODO Auto-generated method stub
-        return null;
+        View view = new View();
+        DataHandler handler = new DataHandler();
+        String EventDet = view.registerEventData();
+        addEvent(EventDet[0],EventDet[1]);
+        int eventId = handler.getEventID();
+        return eventId;
+
     }
 
     @Override
-    
+
     public Event confirmedBooking(Boolean booking) {if(booking == false){
 
         int dateDiff = handler.date - Date.UTC(date);

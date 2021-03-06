@@ -11,9 +11,12 @@ public class Party extends Event {
     }
 
     @Override
-    public Boolean booking(int bookingId) {
-        // TODO Auto-generated method stub
-        return null;
+    public Boolean booking(int bookingId) {View view = new View();
+        DataHandler handler = new DataHandler();
+        String EventDet = view.registerEventData();
+        addEvent(EventDet[0],EventDet[1]);
+        int eventId = handler.getEventID();
+        return eventId;
     }
 
     @Override
@@ -22,7 +25,7 @@ public class Party extends Event {
         int dateDiff = handler.date - Date.UTC(date);
 
         if (datDiff<= 15) {
-            
+
 
             System.out.println("UNCOMFIRMED Event ID :"handler.eventId +"has been cancelled...");
             

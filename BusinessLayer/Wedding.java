@@ -9,9 +9,12 @@ public class Wedding extends Event{
     }
 
     @Override
-    public Boolean booking(int bookingId) {
-        // TODO Auto-generated method stub
-        return null;
+    public Boolean booking(int bookingId) {View view = new View();
+        DataHandler handler = new DataHandler();
+        String EventDet = view.registerEventData();
+        addEvent(EventDet[0],EventDet[1]);
+        int eventId = handler.getEventID();
+        return eventId;
     }
 
     @Override
