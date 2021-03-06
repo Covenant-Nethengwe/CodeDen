@@ -2,8 +2,8 @@ package BusinessLayer;
 
 import java.util.zip.DataFormatException;
 
-import BusinessLayer.*;
-import DataAccessLayer.DataHandler;
+import PresentationLayer.*;
+import DataAccessLayer.*;
 
 public class Baptism extends Event{
 
@@ -11,8 +11,8 @@ public class Baptism extends Event{
     public int registerEvent() {
         View view = new View();
         DataHandler handler = new DataHandler();
-        List<String> lst = view.registerEventData();
-        addEvent(lst[0],lst[1]);
+        String EventDet = view.registerEventData();
+        addEvent(EventDet[0],EventDet[1]);
         int eventId = handler.getEventID();
         return eventId;
     }

@@ -1,4 +1,7 @@
 import java.util.*;
+import java.text.SimpleDateFormat;
+
+
 
 public class View {
     public String UserReg()
@@ -40,19 +43,57 @@ public class View {
 
     }
 
-    public ArrayList<String> registerEventData()
+    public List <String> registerEventData()
     {
-        List<String> lst = new ArrayList<>();
-        // collect data 
+        List<String> lst = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Adrress ID");
+         int addressId = sc.nextInt();
 
+        System.out.println("Enter the number of kids");
+        int noOfKids = sc.nextInt();
+
+        System.out.println("Enter the number of Adults" );
+        int noOfAdults = sc.nextInt();
+
+        System.out.println("Enter event type");
+        String type = sc.nextLine();
+
+        System.out.println("Enter theme");
+        String theme = sc.nextLine();
+
+        System.out.println("Enter kids meal");
+        String kidsMeal = sc.nextLine();
+
+        System.out.println("Enter Adult Meal");
+        String adultMeal = sc.nextLine();
+
+        System.out.println("Enter your Drink(s)");
+        String drinks = sc.nextLine();
+
+        System.out.println("Enter your Desert(s)");
+        String desert = sc.nextLine();
+
+        System.out.println("Enter the date of the event");
+        System.out.println("dd-mm-yyyy");
+        String date1 = sc.nextLine();
+        Date date=new SimpleDateFormat("dd-MM-yyyy").parse(date1);  
+        System.out.println(date);
+        sc.close();
+       String EventDet= addressId+","+ noOfKids+","+noOfAdults+","+type+","+theme+","+kidsMeal+","+adultMeal+","+drinks+","+desert+","+date;
+        lst.add(EventDet);
+       // collect data 
         // add data to list 
         // return list
+       
     }
 
     public int bookingData()
     {
         // ask for booking id
-        int bookingId; // = sc.getInt();
-        
+        System.out.println("Enter your booking ID");
+        Scanner sc = new Scanner();
+        int bookingId = sc.getInt();
+        return bookingId;
     }
 }
