@@ -20,8 +20,14 @@ public class Graduation extends Event{
 
     @Override
     public Boolean booking(int bookingId) {
-        // TODO Auto-generated method stub
-        return null;
+
+        int statusInt = getBookingStatus(bookingId);
+        
+        if (statusInt == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

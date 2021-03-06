@@ -5,18 +5,25 @@ import BusinessLayer.Event;
 public class Party extends Event {
 
     @Override
-    public int registerEvent() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public Boolean booking(int bookingId) {View view = new View();
+    public int registerEvent() {View view = new View();
         DataHandler handler = new DataHandler();
         String EventDet = view.registerEventData();
         addEvent(EventDet[0],EventDet[1]);
         int eventId = handler.getEventID();
         return eventId;
+    }
+
+    @Override
+    public Boolean booking(int bookingId) {
+        
+
+        int statusInt = getBookingStatus(bookingId);
+        
+        if (statusInt == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
