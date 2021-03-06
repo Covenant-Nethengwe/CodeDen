@@ -182,4 +182,45 @@ public class DataHandler {
         con.close();
         return rs.getInt("Status");
     }
+
+    public void addCustomer(String fName,String lName, String cell, String email) throws SQLException,InstantiationException, IllegalAccessException, ClassNotFoundException 
+    {
+        con = new DatabaseConnection().con();
+        try {
+            
+            String sqlEvent = "INSERT INTO Customer (FName,LName,CellNo,Email)"+
+                              "VALUES (?,?,?,?,?,?,?,?,?,?)";                  
+            ps = con.prepareStatement(sqlEvent);
+            ps.setString(1, fName);
+            ps.setString(2, lName);
+            ps.setString(3, cell);
+            ps.setString(4, email);
+            ps.execute();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Exception Thrown");
+            System.out.println(e.toString());
+        }
+
+    }
+
+    public String isExistingUser(String userName)
+    {
+        // accepts cell number as username 
+        // returns the user-name(cell) and password(email) if user exists 
+        // returns an empty string otherwise
+        ResultSet rs;
+        String result = "";
+        con = new DatabaseConnection().con();
+        try {
+            Statement st = con.createStatement();
+            String sql = "SELECT CellNo, Email FROM Customer WHERE CellNo ='" + userName + "'";
+            rs = st.executeQuery(sql);
+            result += rs.getString(0) + "," + rs.getString(1);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        con.close();
+        return result;
+    }
 }

@@ -21,22 +21,23 @@ public class View {
 
     }
 
-    public String UserLogin()
+    public int UserLogin()
     {
-        // Returns the CustomerID of the customer if customer exists
+        // Returns the Email(user name) and Email(password) of the customer if customer exists
         // Retutns -1 should the customer not exist
         Scanner sc = new Scanner(System.in);
         System.out.println("-------------------------WELCOME BACK TO DELICIOUS CATERING-------------------------");
         System.out.println("------------------------THANK YOU FOR YOUR CONTINUED SUPPORT------------------------");
-        System.out.println("Enter the user name given on registration:");
+        System.out.println("Please Enter your USERNAME number (note:cellphone number is your username):");
         String uName = sc.nextLine();
-        System.out.println("Please enter password given on registration:");
-        String pass = sc.nextLine();
-        sc.close();
-
         if (uName) {
             
         }
+        System.out.println("Please enter PASSWORD (note: email is your password):");
+        String pass = sc.nextLine();
+        sc.close();
+
+
     }
 
     public ArrayList<String> registerEventData()
