@@ -59,6 +59,21 @@ public class DataHandler {
         con.close();
         return event;
     }
+
+    public Integer getEventID()
+    {
+        ResultSet rs;
+        con = new DatabaseConnection().con();
+        try {
+            Statement st = con.createStatement();
+            String sql = "SELECT TOP 1 eventId FROM event ORDER BY eventId DESC";
+            rs = st.executeQuery(sql);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        con.close();
+        return rs.getInt("evenId");
+    }
     //Display for raheal
     public List<String> rahealDisplay() throws SQLException, InstantiationException, IllegalAccessException,
             ClassNotFoundException {
@@ -151,5 +166,20 @@ public class DataHandler {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+    }
+
+    public Integer getBookingStatus(int bookingID)
+    {
+        ResultSet rs;
+        con = new DatabaseConnection().con();
+        try {
+            Statement st = con.createStatement();
+            String sql = "SELECT Status FROM Booking WHERE BookingId ='" + bookingID + "'";
+            rs = st.executeQuery(sql);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        con.close();
+        return rs.getInt("Status");
     }
 }

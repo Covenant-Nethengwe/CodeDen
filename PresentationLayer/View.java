@@ -38,4 +38,20 @@ public class View {
             
         }
     }
+
+    public ArrayList<String> registerEventData()
+    {
+        List<String> lst = new ArrayList<>();
+        // collect data 
+
+        // add data to list 
+        // return list
+    }
+
+    public int bookingData()
+    {
+        // ask for booking id
+        int bookingId; // = sc.getInt();
+        
+    }
 }

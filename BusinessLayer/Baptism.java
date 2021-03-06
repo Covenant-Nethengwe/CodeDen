@@ -1,19 +1,30 @@
 package BusinessLayer;
 
-import BusinessLayer.Event;
+import java.util.zip.DataFormatException;
+
+import BusinessLayer.*;
+import DataAccessLayer.DataHandler;
 
 public class Baptism extends Event{
 
     @Override
     public int registerEvent() {
-        // TODO Auto-generated method stub
-        return 0;
+        View view = new View();
+        DataHandler handler = new DataHandler();
+        List<String> lst = view.registerEventData();
+        addEvent(lst[0],lst[1]);
+        int eventId = handler.getEventID();
+        return eventId;
     }
 
     @Override
     public Boolean booking(int bookingId) {
-        // TODO Auto-generated method stub
-        return null;
+        int statusInt = getBookingStatus(bookingId);
+        if (statusInt == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
