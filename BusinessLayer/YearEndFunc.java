@@ -18,6 +18,7 @@ public class YearEndFunc extends Event
     }
 
     @Override
+    
     public Event confirmedBooking(Boolean booking) {if(booking == false){
 
         int dateDiff = handler.date - Date.UTC(date);
